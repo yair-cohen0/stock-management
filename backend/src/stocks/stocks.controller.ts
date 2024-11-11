@@ -6,13 +6,14 @@ import {
   HttpStatus,
 } from '@nestjs/common';
 import { StocksService } from './stocks.service';
+import { StockInfo, StockPrice } from './stocks.type';
 
 @Controller('stocks')
 export class StocksController {
   constructor(private readonly stocksService: StocksService) {}
 
   @Get('price/:symbol')
-  async getStockPrice(@Param('symbol') symbol: string) {
+  async getStockPrice(@Param('symbol') symbol: string): Promise<StockPrice> {
     try {
       return await this.stocksService.getStockPrice(symbol);
     } catch (error) {
@@ -25,7 +26,7 @@ export class StocksController {
   }
 
   @Get('search/:name')
-  async searchStockByName(@Param('name') name: string) {
+  async searchStockByName(@Param('name') name: string): Promise<StockInfo[]> {
     try {
       return await this.stocksService.searchStockByName(name);
     } catch (error) {

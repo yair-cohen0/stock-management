@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import axios from 'axios';
 import { ConfigService } from '@nestjs/config';
+import { StockInfo, StockPrice } from './stocks.type';
 
 @Injectable()
 export class StocksService {
@@ -13,18 +14,18 @@ export class StocksService {
 
   private API_KEY = `?apikey=${this.configService.get('stocks.apiKey')}`;
 
-  async getStockPrice(symbol: string) {
+  async getStockPrice(symbol: string): Promise<StockPrice> {
     const { data } = await this.axiosClient.get(
       `/quote/${symbol}${this.API_KEY}`,
     );
-    return data;
+    return data.pop();
   }
 
   async searchStockByName(
     name: string,
     limit: number = 10,
     exchange: string = 'NASDAQ',
-  ) {
+  ): Promise<StockInfo[]> {
     const { data } = await this.axiosClient.get(
       `/search${this.API_KEY}&query=${name}&limit=${limit}&exchange=${exchange}`,
     );
