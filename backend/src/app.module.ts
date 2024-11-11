@@ -1,9 +1,19 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { StocksModule } from './stocks/stocks.module';
+import { ConfigModule } from '@nestjs/config';
+import stocksConfig from './config/stocks';
+import baseConfig from './config/base';
 
 @Module({
-  imports: [],
+  imports: [
+    StocksModule,
+    ConfigModule.forRoot({
+      isGlobal: true,
+      load: [baseConfig, stocksConfig],
+    }),
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
