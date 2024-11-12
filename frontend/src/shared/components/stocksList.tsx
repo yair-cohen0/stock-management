@@ -15,8 +15,8 @@ export const StocksList: React.FC<StocksListProps> = ({ stocks }) => {
 
   return (
     <div>
-      <Typography.Title level={3}>Stocks List</Typography.Title>
       <List
+        style={{ maxHeight: "70vh", overflowY: "auto" }}
         bordered
         dataSource={stocks}
         renderItem={(stock) => (
