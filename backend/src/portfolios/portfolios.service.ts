@@ -31,7 +31,7 @@ export class PortfoliosService {
         userName: userName,
       });
     }
-    if (!portfolio.stocks.includes(stock)) {
+    if (!portfolio.stocks.some((s) => stock.symbol === s.symbol)) {
       portfolio.stocks.push(stock);
     }
     return await portfolio.save();
