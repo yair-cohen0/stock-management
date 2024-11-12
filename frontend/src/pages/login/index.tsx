@@ -21,7 +21,7 @@ export const LoginModal: React.FC = observer(() => {
     >
       <Input
         placeholder={"Enter username"}
-        onInput={(e) => setUsername(e.target.value)}
+        onInput={(e) => setUsername((e.target as HTMLInputElement).value)}
       />
     </Modal>
   );
