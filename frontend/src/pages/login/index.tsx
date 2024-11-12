@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { observer } from "mobx-react";
 import { Button, Input, Modal } from "antd";
 import { userStore } from "../../stores/user.store.ts";
@@ -15,12 +15,12 @@ export const LoginModal: React.FC = observer(() => {
     mutationKey: ["fetchPortfolio"],
   });
 
-  const handleConfirm = () => {
+  const handleConfirm = useCallback(() => {
     if (userName) {
       userStore.setUserName(userName);
       fetchPortfolio.mutate(userName);
     }
-  };
+  }, [userName]);
 
   return (
     <Modal
