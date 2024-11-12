@@ -1,14 +1,14 @@
 import { action, makeObservable, observable } from "mobx";
 
 class UserStore {
-  username: string | null = null;
-  setUserName(username: string) {
-    this.username = username;
+  userName: string | null = null;
+  setUserName(userName: string) {
+    this.userName = userName;
   }
 
   constructor() {
     makeObservable(this, {
-      username: observable,
+      userName: observable,
       setUserName: action,
     });
   }

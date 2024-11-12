@@ -21,8 +21,8 @@ export class PortfoliosController {
     return this.portfoliosService.removeStock(updatePortfolioDto);
   }
 
-  @Get('user/:username')
-  getUserData(@Param('username') username: string): Promise<PortfolioDocument> {
-    return this.portfoliosService.getUserData(username);
+  @Get('user/:userName')
+  getUserData(@Param('userName') userName: string): Promise<PortfolioDocument> {
+    return this.portfoliosService.getUserData(userName);
   }
 }

@@ -51,7 +51,7 @@ const App: React.FC = () => {
               <Routes>
                 <Route path="/" element={<Gallery />} />
                 <Route path="/portfolio" element={<Portfolio />} />
-                <Route path="/stock/:symbol" element={<StockDetail />} />
+                <Route path="/stock" element={<StockDetail />} />
               </Routes>
             </Content>
           </Layout>
