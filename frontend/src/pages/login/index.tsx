@@ -16,7 +16,11 @@ export const LoginModal: React.FC = observer(() => {
     <Modal
       title="Login"
       open={!userStore.username}
-      footer={[<Button onClick={handleConfirm}>Confirm</Button>]}
+      footer={[
+        <Button key="confirm" onClick={handleConfirm}>
+          Confirm
+        </Button>,
+      ]}
       closeIcon={null}
     >
       <Input
