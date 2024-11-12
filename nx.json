@@ -1,0 +1,53 @@
+{
+  "scope": "nx-nestjs-react-starter",
+  "affectedBranches": {
+    "default": "master"
+  },
+  "dependencies": {
+    "package.json": {
+      "prod": "*",
+      "dev": "*"
+    },
+    "backend/package.json": {
+      "prod": "*",
+      "dev": "*"
+    },
+    "frontend/package.json": {
+      "prod": "*",
+      "dev": "*"
+    }
+  },
+  "taskRunner": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOps": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ]
+      }
+    }
+  },
+  "targetDeps": {
+    "buildTask": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
+  },
+  "projects": {
+    "backendProject": {
+      "tags": [
+        "backend"
+      ]
+    },
+    "clientProject": {
+      "tags": [
+        "frontend"
+      ]
+    }
+  }
+}

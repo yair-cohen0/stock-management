@@ -1,0 +1,20 @@
+{
+  "name": "stock-management",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "start:backend": "nx run backend:start:dev",
+    "start:frontend": "nx run frontend:dev",
+    "build:backend": "nx run backend:build",
+    "build:frontend": "nx run frontend:build"
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "nx": "20.1.0"
+  },
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json"
+}
