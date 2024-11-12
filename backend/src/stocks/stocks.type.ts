@@ -1,12 +1,12 @@
-export type StockInfo = {
+export interface IStockInfo {
   symbol: string;
   name: string;
   currency: string;
   stockExchange: string;
   exchangeShortName: string;
-};
+}
 
-export type StockPrice = {
+export interface IStockPrice {
   symbol: string;
   name: string;
   price: number;
@@ -29,4 +29,4 @@ export type StockPrice = {
   earningsAnnouncement: string;
   sharesOutstanding: number;
   timestamp: number;
-};
+}
