@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { fetchStockPrice } from "../../queries/fetchStockDetails.query.ts";
 import { DetailsTable } from "./detailsTable.tsx";
@@ -10,16 +10,11 @@ import { StockActionButton } from "./stockActionButton.tsx"; // Add this at the 
 export const StockDetail: React.FC = observer(() => {
   const navigate = useNavigate();
 
-  const navigateToHome = useCallback(
-    (navigate: ReturnType<typeof useNavigate>) => {
-      if (!stockStore.stock?.symbol) {
-        navigate("/");
-      }
-    },
-    [stockStore],
-  );
-
-  useEffect(() => navigateToHome(navigate), [navigate]);
+  useEffect(() => {
+    if (!stockStore.stock?.symbol) {
+      navigate("/");
+    }
+  }, [navigate]);
 
   const stockDetailQuery = useQuery({
     queryKey: ["stockDetail", stockStore.stock?.symbol],
