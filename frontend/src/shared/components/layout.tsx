@@ -37,8 +37,13 @@ export const Layout_: React.FC = () => {
         ></Menu>
       </Sider>
       <Layout>
-        <Header style={{ background: "#fff", padding: 0, textAlign: "center" }}>
-          <h2>Stock Management</h2>
+        <Header
+          style={{
+            background: "#fff",
+            textAlign: "center",
+          }}
+        >
+          <h1 style={{ margin: 0 }}>Stock Management</h1>
         </Header>
         <LoginModal />
         <Content
