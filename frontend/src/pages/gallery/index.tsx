@@ -19,7 +19,7 @@ export const Gallery: React.FC = () => {
 
   return (
     <>
-      <Typography.Title level={3}>Search Stocks</Typography.Title>
+      <Typography.Title level={2}>Gallery</Typography.Title>
       <SearchBar handleSearch={handleSearch} />
       <Divider />
       {stocksQuery.isLoading ? (
